@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="Kyi-uC-HGk">
             <objects>
-                <viewController id="GLu-9I-2Sf" sceneMemberID="viewController">
+                <viewController id="GLu-9I-2Sf" customClass="LoginViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jx8-yc-1Ha"/>
                         <viewControllerLayoutGuide type="bottom" id="nlz-ID-cyj"/>
@@ -36,7 +36,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4vc-Yw-PXu" kind="show" id="owC-iO-hRp"/>
+                                    <action selector="signIn:" destination="GLu-9I-2Sf" eventType="touchUpInside" id="Z9n-Oz-0bM"/>
+                                    <segue destination="4vc-Yw-PXu" kind="show" identifier="loginSegue" id="owC-iO-hRp"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Class ID..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6fA-ap-2VF">
@@ -59,6 +60,9 @@
                             <constraint firstItem="MRy-K6-CEt" firstAttribute="leading" secondItem="uQu-h3-5TX" secondAttribute="leadingMargin" id="qvA-CB-d6T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="6fA-ap-2VF" id="vce-73-xdy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Spd-3x-Pit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +71,7 @@
         <!--__________'s Room-->
         <scene sceneID="e8B-iW-yIO">
             <objects>
-                <viewController id="NNR-0Q-IwJ" sceneMemberID="viewController">
+                <viewController id="NNR-0Q-IwJ" customClass="QuestionsViewController" customModule="ClassConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v4n-Ui-mBJ"/>
                         <viewControllerLayoutGuide type="bottom" id="kRa-4q-qSd"/>
@@ -86,6 +90,9 @@
                                 <state key="normal" title="Send">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendMessage:" destination="NNR-0Q-IwJ" eventType="touchUpInside" id="3Am-Ct-SY5"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your question..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Xw-u6-1Dg">
                                 <rect key="frame" x="24" y="621" width="253" height="30"/>
@@ -103,6 +110,37 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VP1-s8-OaP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="IE3-wt-RTa" customClass="QuestionTableViewCell" customModule="ClassConnect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IE3-wt-RTa" id="03x-W5-c9n">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-DO-M5b">
+                                                    <rect key="frame" x="8" y="12" width="359" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xEF-DO-M5b" firstAttribute="top" secondItem="03x-W5-c9n" secondAttribute="topMargin" constant="4" id="0bp-WY-Ycj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xEF-DO-M5b" secondAttribute="trailing" id="H56-Tf-u1u"/>
+                                                <constraint firstItem="xEF-DO-M5b" firstAttribute="leading" secondItem="03x-W5-c9n" secondAttribute="leadingMargin" id="PWe-sT-Y0E"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xEF-DO-M5b" secondAttribute="bottom" constant="4" id="kbz-Ov-o00"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="questionText" destination="xEF-DO-M5b" id="0UK-az-LIH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NNR-0Q-IwJ" id="OuQ-7w-7s6"/>
+                                    <outlet property="delegate" destination="NNR-0Q-IwJ" id="v30-0o-MWZ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,6 +160,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="__________'s Room" id="7bG-zT-nf4"/>
+                    <connections>
+                        <outlet property="questionTextField" destination="6Xw-u6-1Dg" id="FLE-3k-Gv1"/>
+                        <outlet property="tableView" destination="VP1-s8-OaP" id="FKD-gT-YfD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHP-89-S6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,10 +172,9 @@
         <!--Navigation Controller-->
         <scene sceneID="f3N-KT-VYN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zYA-lI-W9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vc-Yw-PXu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="toq-2X-Gkh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="toq-2X-Gkh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.036999999999999998" green="0.73999999999999999" blue="0.54081666669999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,6 +187,7 @@
                         <segue destination="NNR-0Q-IwJ" kind="relationship" relationship="rootViewController" id="4Kx-dA-fKg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zYA-lI-W9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072.8" y="183.95802098950526"/>
         </scene>
