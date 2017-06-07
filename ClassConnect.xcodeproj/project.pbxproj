@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		CBEFADBA1EE7952B00B18EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFADB91EE7952B00B18EAB /* AppDelegate.swift */; };
-		CBEFADBC1EE7952B00B18EAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFADBB1EE7952B00B18EAB /* ViewController.swift */; };
 		CBEFADBF1EE7952B00B18EAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBEFADBD1EE7952B00B18EAB /* Main.storyboard */; };
 		CBEFADC11EE7952B00B18EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBEFADC01EE7952B00B18EAB /* Assets.xcassets */; };
 		CBEFADC41EE7952B00B18EAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBEFADC21EE7952B00B18EAB /* LaunchScreen.storyboard */; };
+		CBEFADCD1EE7B21C00B18EAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFADCC1EE7B21C00B18EAB /* LoginViewController.swift */; };
+		CBEFADD11EE7B24200B18EAB /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFADD01EE7B24200B18EAB /* QuestionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CBEFADB61EE7952B00B18EAB /* ClassConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEFADB91EE7952B00B18EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBEFADBB1EE7952B00B18EAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CBEFADBE1EE7952B00B18EAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBEFADC01EE7952B00B18EAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBEFADC31EE7952B00B18EAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBEFADC51EE7952B00B18EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBEFADCC1EE7B21C00B18EAB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CBEFADD01EE7B24200B18EAB /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		CBEFADB81EE7952B00B18EAB /* ClassConnect */ = {
 			isa = PBXGroup;
 			children = (
+				CBEFADCB1EE7B20B00B18EAB /* Controllers */,
 				CBEFADB91EE7952B00B18EAB /* AppDelegate.swift */,
-				CBEFADBB1EE7952B00B18EAB /* ViewController.swift */,
 				CBEFADBD1EE7952B00B18EAB /* Main.storyboard */,
 				CBEFADC01EE7952B00B18EAB /* Assets.xcassets */,
 				CBEFADC21EE7952B00B18EAB /* LaunchScreen.storyboard */,
 				CBEFADC51EE7952B00B18EAB /* Info.plist */,
 			);
 			path = ClassConnect;
+			sourceTree = "<group>";
+		};
+		CBEFADCB1EE7B20B00B18EAB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBEFADCC1EE7B21C00B18EAB /* LoginViewController.swift */,
+				CBEFADD01EE7B24200B18EAB /* QuestionsViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBEFADBC1EE7952B00B18EAB /* ViewController.swift in Sources */,
+				CBEFADCD1EE7B21C00B18EAB /* LoginViewController.swift in Sources */,
 				CBEFADBA1EE7952B00B18EAB /* AppDelegate.swift in Sources */,
+				CBEFADD11EE7B24200B18EAB /* QuestionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +273,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ClassConnect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gametime.nguyendo.ClassConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ClassConnect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gametime.nguyendo.ClassConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
