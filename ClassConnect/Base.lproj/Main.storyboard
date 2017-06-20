@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E183b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GLu-9I-2Sf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E183b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GLu-9I-2Sf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,12 +36,11 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signIn:" destination="GLu-9I-2Sf" eventType="touchUpInside" id="Z9n-Oz-0bM"/>
-                                    <segue destination="4vc-Yw-PXu" kind="show" identifier="loginSegue" id="owC-iO-hRp"/>
+                                    <action selector="loginButton:" destination="GLu-9I-2Sf" eventType="touchUpInside" id="c43-0A-Yhd"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Class ID..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6fA-ap-2VF">
-                                <rect key="frame" x="24" y="549" width="327" height="30"/>
+                                <rect key="frame" x="24" y="547" width="327" height="32"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -172,7 +171,7 @@
         <!--Navigation Controller-->
         <scene sceneID="f3N-KT-VYN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4vc-Yw-PXu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navID" automaticallyAdjustsScrollViewInsets="NO" id="4vc-Yw-PXu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="toq-2X-Gkh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

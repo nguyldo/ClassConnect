@@ -14,7 +14,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var questionTextField: UITextField!
     @IBOutlet var tableView: UITableView!
     
-    private var currentId = ""
+    var currentId = ""
     private var currentSize = 0
     
     // Firebase
@@ -69,9 +69,14 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = FIRDatabase.database().reference()
+        
+        let userDefaults = UserDefaults.standard
+        currentId = userDefaults.string(forKey: "id")!
+        
+        
         //print(UserDefaults.standard.value(forKey: "idDefault") as! String)
-        currentId = UserDefaults.standard.value(forKey: "idDefault") as! String
+        //currentId = UserDefaults.standard.value(forKey: "idDefault") as! String
         getData()
         //ref = FIRDatabase.database().reference()
         // Do any additional setup after loading the view.

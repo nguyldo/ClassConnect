@@ -13,11 +13,11 @@ import FirebaseDatabase
 class LoginViewController: UIViewController {
 
     @IBOutlet var idTextField: UITextField!
-    private var smallId: String!
     
-    var ref: FIRDatabaseReference = FIRDatabase.database().reference()
+    var ref: FIRDatabaseReference!
     
     override func viewDidLoad() {
+        ref = FIRDatabase.database().reference()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -26,46 +26,25 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func signIn(_ sender: UIButton) {
-        /*
-        if let localId = idTextField.text {
-            ref.child("allCodes").observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as! NSDictionary
-                if let _ = value[localId] {
-                    print(localId)
-                    self.smallId = localId
-                }
-            }, withCancel: { (error) in
-                print(error.localizedDescription)
-            })
-        }*/
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginSegue" {
-            /*
-            let preVc = segue.destination as! UINavigationController
-            let vc = preVc.topViewController as! QuestionsViewController
-            if let localId = smallId {
-                UserDefaults.standard.setValue(localId, forKey: "idDefault")
+
+    @IBAction func loginButton(_ sender: Any) {
+        ref.child("allCodes").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            if let localCode = value?[self.idTextField.text!] as? String {
+                
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(localCode, forKey: "id")
+                
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "navID")
+                self.present(controller, animated: true, completion: nil)
             }
- */
-            if let localId = idTextField.text {
-                ref.child("allCodes").observeSingleEvent(of: .value, with: { (snapshot) in
-                    let value = snapshot.value as! NSDictionary
-                    if let _ = value[localId] {
-                        print(localId)
-                        
-                        UserDefaults.standard.set(localId, forKey: "idDefault")
-                    }
-                }, withCancel: { (error) in
-                    print(error.localizedDescription)
-                })
-            }
+        }) { (error) in
+            print(error.localizedDescription)
         }
     }
-
+    
     /*
     // MARK: - Navigation
 
