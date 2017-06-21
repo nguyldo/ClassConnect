@@ -55,6 +55,10 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

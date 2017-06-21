@@ -52,11 +52,13 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if let localString = questionTextField.text {
             
-            self.ref.child(currentId + "/" + String(currentSize)).setValue(localString)
-            questionTextField.text = ""
-            let lastIndex = IndexPath(row: self.currentSize - 1, section: 0)
-            currentSize = currentSize + 1
-            self.tableView.scrollToRow(at: lastIndex, at: UITableViewScrollPosition.top, animated: false)
+            if checkValidity(check: localString) {
+                self.ref.child(currentId + "/" + String(currentSize)).setValue(localString)
+                questionTextField.text = ""
+                let lastIndex = IndexPath(row: self.currentSize - 1, section: 0)
+                currentSize = currentSize + 1
+                self.tableView.scrollToRow(at: lastIndex, at: UITableViewScrollPosition.top, animated: false)
+            }
         }
         
     }
@@ -77,6 +79,21 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tableView.scrollToRow(at: lastIndex, at: UITableViewScrollPosition.top, animated: false)
         })
     
+    }
+    
+    private func checkValidity(check: String) -> Bool {
+        
+        var flag = false
+        
+        let arrayChars = [Character](check.characters)
+        for char in arrayChars {
+            if char != " " {
+                flag = true
+            }
+        }
+        
+        return flag
+        
     }
     
     override func viewDidLoad() {
