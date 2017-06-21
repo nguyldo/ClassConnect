@@ -26,20 +26,30 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    @IBAction func clickReturnOnTextField(_ sender: Any) {
+        loadQuestions()
+    }
+    
     @IBAction func loginButton(_ sender: Any) {
+        loadQuestions()
+    }
+    
+    private func loadQuestions() {
         ref.child("allCodes").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             if let localCode = value?[self.idTextField.text!] as? String {
                 
                 let userDefaults = UserDefaults.standard
-                userDefaults.set(localCode, forKey: "id")
-                
+                userDefaults.set(self.idTextField.text!, forKey: "id")
+                userDefaults.set(localCode, forKey: "name")
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "navID")
                 self.present(controller, animated: true, completion: nil)
             }
+            
         }) { (error) in
             print(error.localizedDescription)
         }

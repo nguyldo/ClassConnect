@@ -29,7 +29,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //questions = getData()
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! QuestionTableViewCell
-        cell.questionText.text = questions[indexPath.item]
+        cell.questionText.text = "Q: " + questions[indexPath.item]
         return cell
         
     }
@@ -40,15 +40,27 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         return UITableViewAutomaticDimension
     }
     
+    @IBAction func sendClickOnTextField(_ sender: Any) {
+        send()
+    }
+    
     @IBAction func sendMessage(_ sender: UIButton) {
+        send()
+    }
+    
+    private func send() {
+        
         if let localString = questionTextField.text {
+            
             self.ref.child(currentId + "/" + String(currentSize)).setValue(localString)
             questionTextField.text = ""
             let lastIndex = IndexPath(row: self.currentSize - 1, section: 0)
             currentSize = currentSize + 1
             self.tableView.scrollToRow(at: lastIndex, at: UITableViewScrollPosition.top, animated: false)
         }
+        
     }
+    
     
     private func getData() {
     
@@ -74,6 +86,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         let userDefaults = UserDefaults.standard
         currentId = userDefaults.string(forKey: "id")!
         
+        self.title = userDefaults.string(forKey: "name")! + "'s Room"
         
         //print(UserDefaults.standard.value(forKey: "idDefault") as! String)
         //currentId = UserDefaults.standard.value(forKey: "idDefault") as! String

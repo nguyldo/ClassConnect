@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E183b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GLu-9I-2Sf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16E183b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GLu-9I-2Sf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="Kyi-uC-HGk">
@@ -43,7 +48,10 @@
                                 <rect key="frame" x="24" y="547" width="327" height="32"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="join"/>
+                                <connections>
+                                    <action selector="clickReturnOnTextField:" destination="GLu-9I-2Sf" eventType="primaryActionTriggered" id="dCw-vr-gRE"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,7 +105,10 @@
                                 <rect key="frame" x="24" y="621" width="253" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                <connections>
+                                    <action selector="sendClickOnTextField:" destination="NNR-0Q-IwJ" eventType="primaryActionTriggered" id="3Hc-u7-cEz"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZC-jr-HCA">
                                 <rect key="frame" x="16" y="608" width="343" height="1"/>
@@ -114,7 +125,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IE3-wt-RTa" id="03x-W5-c9n">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEF-DO-M5b">
@@ -158,7 +169,11 @@
                             <constraint firstAttribute="trailing" secondItem="VP1-s8-OaP" secondAttribute="trailing" id="wWC-fl-3WJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="__________'s Room" id="7bG-zT-nf4"/>
+                    <navigationItem key="navigationItem" title="__________'s Room" id="7bG-zT-nf4">
+                        <barButtonItem key="rightBarButtonItem" image="moretabbarimage" id="IYv-76-C16">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="questionTextField" destination="6Xw-u6-1Dg" id="FLE-3k-Gv1"/>
                         <outlet property="tableView" destination="VP1-s8-OaP" id="FKD-gT-YfD"/>
@@ -176,7 +191,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="toq-2X-Gkh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.036999999999999998" green="0.73999999999999999" blue="0.54081666669999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.035294117647058823" green="0.74117647058823533" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -191,4 +206,7 @@
             <point key="canvasLocation" x="1072.8" y="183.95802098950526"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="moretabbarimage" width="24" height="5"/>
+    </resources>
 </document>
