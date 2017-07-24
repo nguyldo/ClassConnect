@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
                 let userDefaults = UserDefaults.standard
                 userDefaults.set(self.idTextField.text!, forKey: "id")
                 userDefaults.set(localCode, forKey: "name")
+                userDefaults.set(false, forKey: "teacher")
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "navID")

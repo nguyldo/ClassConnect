@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4188A7295D05B15DF121749E /* Pods_ClassConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE79FC5C355561F499114AE /* Pods_ClassConnect.framework */; };
 		CB9B00491EFAC73700CE85FB /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B00481EFAC73700CE85FB /* TeacherViewController.swift */; };
-		CBEE204B1EE7F1A200B37FA2 /* StaticVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE204A1EE7F1A200B37FA2 /* StaticVariables.swift */; };
 		CBEFADBA1EE7952B00B18EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEFADB91EE7952B00B18EAB /* AppDelegate.swift */; };
 		CBEFADBF1EE7952B00B18EAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBEFADBD1EE7952B00B18EAB /* Main.storyboard */; };
 		CBEFADC11EE7952B00B18EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBEFADC01EE7952B00B18EAB /* Assets.xcassets */; };
@@ -25,7 +24,6 @@
 		3EC76FFC05C2053F7F722A79 /* Pods-ClassConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassConnect/Pods-ClassConnect.release.xcconfig"; sourceTree = "<group>"; };
 		BCE79FC5C355561F499114AE /* Pods_ClassConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9B00481EFAC73700CE85FB /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
-		CBEE204A1EE7F1A200B37FA2 /* StaticVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticVariables.swift; sourceTree = "<group>"; };
 		CBEFADB61EE7952B00B18EAB /* ClassConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEFADB91EE7952B00B18EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBEFADBE1EE7952B00B18EAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				CBEFADC21EE7952B00B18EAB /* LaunchScreen.storyboard */,
 				CBEFADC51EE7952B00B18EAB /* Info.plist */,
 				CBEFADD41EE7BDD100B18EAB /* GoogleService-Info.plist */,
-				CBEE204A1EE7F1A200B37FA2 /* StaticVariables.swift */,
 			);
 			path = ClassConnect;
 			sourceTree = "<group>";
@@ -104,9 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				CBEFADCC1EE7B21C00B18EAB /* LoginViewController.swift */,
+				CB9B00481EFAC73700CE85FB /* TeacherViewController.swift */,
 				CBEFADD01EE7B24200B18EAB /* QuestionsViewController.swift */,
 				CBEFADD21EE7B81900B18EAB /* QuestionTableViewCell.swift */,
-				CB9B00481EFAC73700CE85FB /* TeacherViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +143,7 @@
 				TargetAttributes = {
 					CBEFADB51EE7952B00B18EAB = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9UQ9X6GN24;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -239,7 +237,6 @@
 				CBEFADD31EE7B81900B18EAB /* QuestionTableViewCell.swift in Sources */,
 				CBEFADBA1EE7952B00B18EAB /* AppDelegate.swift in Sources */,
 				CBEFADD11EE7B24200B18EAB /* QuestionsViewController.swift in Sources */,
-				CBEE204B1EE7F1A200B37FA2 /* StaticVariables.swift in Sources */,
 				CB9B00491EFAC73700CE85FB /* TeacherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +361,7 @@
 			baseConfigurationReference = 2711BE7710E878273C7FBF8C /* Pods-ClassConnect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UQ9X6GN24;
 				INFOPLIST_FILE = ClassConnect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -378,6 +376,7 @@
 			baseConfigurationReference = 3EC76FFC05C2053F7F722A79 /* Pods-ClassConnect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UQ9X6GN24;
 				INFOPLIST_FILE = ClassConnect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
