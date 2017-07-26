@@ -22,7 +22,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     private let userDefaults = UserDefaults.standard
     
     // Firebase
-    var ref: FIRDatabaseReference = FIRDatabase.database().reference()
+    var ref: DatabaseReference = Database.database().reference()
     
     private var questions = [String]()
     
@@ -90,7 +90,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     private func getData() {
     
         
-        _ = ref.child(currentId).observe(FIRDataEventType.value, with: { (snapshot) in
+        _ = ref.child(currentId).observe(DataEventType.value, with: { (snapshot) in
             let value = snapshot.value as! NSArray
             let objCArray = NSMutableArray(array: value)
             let localStrings = objCArray as NSArray as! [String]
@@ -153,13 +153,17 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = FIRDatabase.database().reference()
+        ref = Database.database().reference()
         
         
         currentId = userDefaults.string(forKey: "id")!
         isTeacher = userDefaults.bool(forKey: "teacher")
         
-        self.title = userDefaults.string(forKey: "name")! + "'s Room"
+        if isTeacher {
+            self.title = "Your Room"
+        } else {
+            self.title = userDefaults.string(forKey: "name")! + "'s Room"
+        }
         getData()
     }
 

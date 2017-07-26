@@ -14,11 +14,12 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var idTextField: UITextField!
     
-    var ref: FIRDatabaseReference!
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
-        ref = FIRDatabase.database().reference()
+        ref = Database.database().reference()
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 

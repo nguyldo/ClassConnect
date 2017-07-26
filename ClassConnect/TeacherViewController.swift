@@ -23,7 +23,7 @@ class TeacherViewController: UIViewController {
     private let lengthOfId = 6
     private let userDefaults = UserDefaults.standard
     
-    var ref: FIRDatabaseReference!
+    var ref: DatabaseReference!
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         
@@ -48,7 +48,7 @@ class TeacherViewController: UIViewController {
                 let password = self.passwordTextField.text,
                 let name = self.nameTextField.text {
             
-                FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+                Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                     if let u = user {
                         var genId = self.createRandomId(length: self.lengthOfId)
                         while self.checkValidityGenId(code: genId) {
@@ -81,7 +81,7 @@ class TeacherViewController: UIViewController {
             if let email = emailTextField.text,
                 let password = passwordTextField.text {
                 
-                FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+                Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                     if let u = user {
                         
                         self.setRoomId(uid: u.uid)
@@ -167,7 +167,7 @@ class TeacherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ref = FIRDatabase.database().reference()
+        ref = Database.database().reference()
     }
 
     override func didReceiveMemoryWarning() {

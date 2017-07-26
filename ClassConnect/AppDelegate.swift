@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     override init() {
         super.init()
-        FIRApp.configure()
+        FirebaseApp.configure()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
