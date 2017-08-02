@@ -50,6 +50,14 @@ class LoginViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "navID")
                 self.present(controller, animated: true, completion: nil)
+            } else {
+            
+                let message = "Your login ID is incorrect."
+                let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                let tryAgainAction = UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil)
+                alertController.addAction(tryAgainAction)
+                self.present(alertController, animated: true, completion: nil)
+            
             }
             
         }) { (error) in

@@ -72,7 +72,11 @@ class TeacherViewController: UIViewController {
                         self.present(controller, animated: true, completion: nil)
                         
                     } else {
-                        
+                        let message = "An account under that email already exists."
+                        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                        let tryAgainAction = UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil)
+                        alertController.addAction(tryAgainAction)
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 })
                 
@@ -91,6 +95,14 @@ class TeacherViewController: UIViewController {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let controller = storyboard.instantiateViewController(withIdentifier: "navID")
                         self.present(controller, animated: true, completion: nil)
+                        
+                    } else {
+                        
+                        let message = "Your username/password is incorrect."
+                        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                        let tryAgainAction = UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil)
+                        alertController.addAction(tryAgainAction)
+                        self.present(alertController, animated: true, completion: nil)
                         
                     }
                 })
