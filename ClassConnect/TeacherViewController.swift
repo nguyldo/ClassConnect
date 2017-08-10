@@ -56,7 +56,8 @@ class TeacherViewController: UIViewController {
                             print(genId)
                         }
                         
-                        self.ref.child("allCodes/" + genId).setValue(name)
+                        self.ref.child("codes/" + u.uid + "/name").setValue(name)
+                        self.ref.child("codes/" + u.uid + "/code").setValue(genId)
                         
                         self.userDefaults.set(true, forKey: "teacher")
                         self.userDefaults.set(genId, forKey: "id")
@@ -65,7 +66,7 @@ class TeacherViewController: UIViewController {
                         self.ref.child(genId + "/0").setValue("Welcome to ClassConnect! The code for this room is: " + genId)
                         self.ref.child(genId + "/1").setValue("Ask your questions below. Any messages from the instructor will be highlighted in red.")
                         
-                        self.ref.child("authCodes/" + u.uid).setValue(genId)
+                        //self.ref.child("authCodes/" + u.uid).setValue(genId)
                         
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let controller = storyboard.instantiateViewController(withIdentifier: "navID")
@@ -88,13 +89,13 @@ class TeacherViewController: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                     if let u = user {
                         
+                        self.setDefaults(uid: u.uid)
+                        /*
                         self.setRoomId(uid: u.uid)
-                        self.setName(code: self.userDefaults.string(forKey: "id")!)
-                        self.userDefaults.set(true, forKey: "teacher")
+                        self.setName(code: self.userDefaults.string(forKey: "id")!)*/
                         
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let controller = storyboard.instantiateViewController(withIdentifier: "navID")
-                        self.present(controller, animated: true, completion: nil)
+                        
+                        
                         
                     } else {
                         
@@ -109,6 +110,27 @@ class TeacherViewController: UIViewController {
             }
         }
         
+    }
+    
+    private func setDefaults(uid: String) {
+        ref.child("codes").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            if let localName = value?["name"] as? String {
+                self.userDefaults.set(localName, forKey: "name")
+            }
+            if let localCode = value?["code"] as? String {
+                self.userDefaults.set(localCode, forKey: "id")
+            }
+            self.userDefaults.set(true, forKey: "teacher")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "navID")
+            self.present(controller, animated: true, completion: nil)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     private func createRandomId(length: Int) -> String {
@@ -149,6 +171,8 @@ class TeacherViewController: UIViewController {
             
             if let localCode = value?[uid] as? String {
                 self.userDefaults.set(localCode, forKey: "id")
+            } else {
+                print("\n\n\n\n\n\nERROR HERE\n\n\n\n\n")
             }
         }) { (error) in
             print(error.localizedDescription)

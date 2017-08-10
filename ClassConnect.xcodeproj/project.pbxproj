@@ -379,6 +379,7 @@
 				PROVISIONING_PROFILE = "a2829b0a-2c27-40f1-9aa3-5f98ac8d1da8";
 				PROVISIONING_PROFILE_SPECIFIER = "ClassConnect Development Profile";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -398,6 +399,7 @@
 				PROVISIONING_PROFILE = "35b74755-c81a-4b2b-aff9-73ceb2cec3e9";
 				PROVISIONING_PROFILE_SPECIFIER = "ClassConnect Distribution Profile";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
